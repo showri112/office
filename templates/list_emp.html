@@ -1,0 +1,50 @@
+{% extends "Dependencies.html" %}
+{% block title %}List of Employees {% endblock %}
+{% include "navbar.html"%}
+
+{% block content %}
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissable animated fadeInDown">
+        <h4 class="alert-heading">{{message}}</h4>
+    {% endfor %}
+
+    <div class="container">
+<h1 align="center">List of employees</h1>
+ <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Date of Joining</th>
+        <th scope="col">Added By</th>
+      <th scope="col">Salary</th>
+      <th scope="col">Working Status</th>
+        <th scope="col">Photo</th>
+        <th scope="col"> </th>
+        <th scope="col"> </th>
+
+
+    </tr>
+
+  </thead>
+  <tbody>
+    <tr>
+        {% for object in object_list %}
+      <th scope="row">{{ object.name }}</th>
+      <td>{{ object.DateofJoining }}</td>
+            <td>{{ object.user.username }}</td>
+      <td>{{ object.Salary }}</td>
+      <td>{{ object.Working }}</td>
+      <td><img height="100px" src="{{ object.Photo.url }}" alt=""></td>
+            <td><a class="btn btn-primary" href="{% url 'UpdateEmp' object.id %}">Update</a></td>
+            <td><a class="btn btn-danger" href="{% url 'DeleteEmp' object.id %}">Delete</a></td>
+
+
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+    </div>
+{% endblock %}
+
+
+

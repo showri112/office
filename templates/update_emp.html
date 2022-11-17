@@ -1,0 +1,20 @@
+{% extends "Dependencies.html" %}
+{%load crispy_forms_tags %}
+
+{% block content %}
+    <h1 align="center"> Update Details</h1>
+    <div class="container">
+<form method="post" enctype="multipart/form-data" >
+    {% csrf_token %}
+
+  <div class="form-group">
+    {{ form|crispy }}
+
+  </div>
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+    </div>
+{% endblock %}

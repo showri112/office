@@ -1,0 +1,24 @@
+<!doctype html>
+
+<html lang="en">
+
+<title>{% block title %} {% endblock %}</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <body>
+  {% include "navbar.html" %}
+    {% if user.is_authenticated %}
+  <h3 align="right"> You're logged in as <strong>{{ user.username }}</strong></h3>
+  {% endif %}
+{#  {% for message in messages %}#}
+{#  {{ message }}#}
+{#  {% endfor %}#}
+
+  {% block content %}
+
+  {% endblock %}
+
+
+  </body>
+</html>
